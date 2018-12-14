@@ -1,0 +1,39 @@
+CS 537 Programming Assignment #3-1
+
+This program is a simple version of the make command in linux system. It will read a "makefile" and following the specifications in the makefile as to which commands need to be executed. Any exception will be gracefully handled
+
+Authors
+
+Youmin Han and Xianjie Zheng worked on the construction and improvement of the code together.
+
+Changed Log
+1. (Textparsing.c, line 57) Memory Leak error before exit the program. Fixed by freeing all the dynamic allocated memory before return NULL.
+
+2. (Textparsing.c, line 95-107) Dead assignment to the index. Since the program terminated with errors, the index will not be used in the future. Thus, we do not need to assign a value to it. Remove  "index = 0;" from the code.
+
+3. (Textparsing.c, line 95-107) Dead assignment to the modeflag. Since the program terminated with errors, the modeflag will not be used in the future. Thus, we do not need to assign a value to it. Remove  "modeflag = 0;" from the code.
+
+4. (Textparsing.c, line 95-107) Dead assignment to the tgtflag. Since the program terminated with errors, the tgtflag will not be used in the future. Thus, we do not need to assign a value to it. Remove  "tgtflag = 0;" from the code.
+
+5. (Textparsing.c, line 95-107) Memory Leak error before exit the program. Value store to "str" is never read. Fixed by freeing all the dynamic allocated memory and removing "str = (char *)calloc(buffersize, sizeof(char));" "before return NULL.
+
+6. (Textparsing.c, line 191) Memory Leak error before exit the program. Fixed by freeing all the dynamic allocated memory before return NULL.
+
+7. (Textparsing.c, line 206-209) Memory Leak error of str before exit the program. The str is allocated but not used before exit the program. Fixed by freeing "str" before return the result.
+
+8. (buildrep.c, line 171-174) Dead assignment to the addcounter. Since the program terminated with errors, the addcounter will not be used in the future. Thus, we do not need to assign a value to it. Remove  "addcounter = 0;" from the code.
+
+9. (buildrep.c, line 175-177) Memory Leak error of tempdep before exit the program. The tempdep is allocated but not used before exit the program. Fixed by freeing "tempdep" if it is empty inside.
+
+10. (buildrep.c, line 247-250) Dead assignment to the addcounter. Since the program terminated with errors, the addcounter will not be used in the future. Thus, we do not need to assign a value to it. Remove  "addcounter = 0;" from the code.
+
+11. (buildrep.c, line 251-253) Memory Leak error of temparg before exit the program. The temparg is allocated but not used before exit the program. Fixed by freeing "temparg" if it is empty inside.
+
+12. (buildrep.c, line 260-262) Dead assignment to the tarreadcount. Since the program terminated with errors, the tarreadcount will not be used in the future. Thus, we do not need to assign a value to it. Remove  "tarreadcount = 0;" from the code.
+
+13. (progexe.c, line 116) Memory Leak error of argument before exit the program. The argument is allocated but not used before exit the program. Fixed by freeing "argument" before entering to the next loop.
+
+14. (main.c, line 137) Changed to "exit(0)" to make sure it can terminate successfully.
+
+15. We have the still reachable memory that are used for graphs. And we know after program exits, this memory will also be freed. We have talked to TA Matt about this problem and he said it's ok to have these memory not freed. 
+
