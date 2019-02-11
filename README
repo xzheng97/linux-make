@@ -1,7 +1,6 @@
 CS 537 Programming Assignment #3
 
-This program is a simple version of the make command in linux system. It will read a "makefile" and following the specifications in the makefile as to which commands need to be executed. Any exception will be gracefully handled
+This program is a simple version of the make command in linux system.
+It will read a "makefile" and follow the specifications in the makefile as to which commands need to be executed.
+Any exception will be gracefully handled
 
-Authors
-
-Youmin Han and Xianjie Zheng worked on the construction and improvement of the code together.
